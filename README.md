@@ -15,4 +15,4 @@ Different envirenement Setting tutorial:
       https://askubuntu.com/questions/34/whats-the-easiest-way-to-set-up-a-lamp-stack
   
 ]]></content>
-  <tabTrigger>readme</tabTrigger></snippet>
+  </snippet>
