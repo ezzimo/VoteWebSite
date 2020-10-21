@@ -1,20 +1,21 @@
 <?php
   session_start();
-  require_once "pdo.php";
-  $Vote = "Nouveau";
-  $UserListData;
+  require_once "pdo.php"; // connect to the database
+  $Vote = "Nouveau"; // test is the user is a new one 
+  $UserListData; // Users from database who voted before  
   $usr = $pdo2->query("SELECT user_id, user_first_name, user_seconde_name, phone_number, Adresse, Region FROM Useres");
   $UsersList = $usr->fetchAll(PDO::FETCH_ASSOC);
   if (isset($_POST['Nom']) && isset($_POST['Prenom']) ) {
     foreach ($UsersList as $key => $value) {
       if ($value["user_first_name"] == $_POST['Prenom'] ) {
         if ($value["user_seconde_name"] == $_POST['Nom']) {
-          $Vote = "Ancien";
+          $Vote = "Ancien"; // compare the user info with the users from the database 
             }
       }}
     if ($Vote == "Ancien") {
       $_SESSION["error"] = " لا يمكن التصويت عدة مرات , سبق لصاحب هذه المعلومات المشاركة!";
-      header('Location: UsersLogin.php');
+      $__SESSION["Login"] = "Fail";
+      header('Location: index.php'); // user alrady voted
       return;
     }  elseif ($Vote == "Nouveau") {
         $_SESSION["Nom"] = $_POST['Nom'];
@@ -22,8 +23,9 @@
         $_SESSION["Telephone"] = $_POST['Telephone'];
         $_SESSION["Addresse"] = $_POST['Addresse'];
         $_SESSION["Region"] = $_POST['Region'];
-        header('Location: VotePage.php');
-        return;
+        $_SESSION["Login"] = "success";
+        header('Location: VotePage.php'); // a new User redirect him to vote page where he can vote and send his info in the SESSION global variable
+        return; // he will not be registred untile he vote.
       }
   }
  ?>
