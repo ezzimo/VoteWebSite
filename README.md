@@ -1,6 +1,7 @@
 
 # Vote WebApp
-A Simple project done to allow Users from Hemophiliac community voting on pictures.
+A Simple project done to allow Users from Hemophiliac community voting on pictures, it's a volunteer work for nonprofit organization www.anaph.ma.
+There is a lot to do in design and colors.
 It's writting with PHP Version 7.4.11, Javascript and phpMyAdmin Version information: 4.5.4.
 Database is Anaph with multiple tables. Web server Apache/2.4.18.
 Different envirenement Setting tutorial: 
