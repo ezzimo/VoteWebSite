@@ -1,5 +1,8 @@
 <?php
 session_start();
+if ( !isset($_SESSION["Login"]) ) {
+  header('Location: index.php');
+}
  ?>
 <html>
 <head>
@@ -124,7 +127,7 @@ session_start();
           success:function(data){
             alert('شكرا لمشاركتكم');
             console.log(User_Info_to_Send);
-            window.location.replace("UsersLogin.php");
+            window.location.replace("index.php");
           }
         })
       }
